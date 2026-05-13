@@ -1,0 +1,135 @@
+.members {
+  padding: 80px 0;
+  background-color: #fff;
+}
+
+.members-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.members-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #FF6B00;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+/* ── Grid — Gallery jaisa 3 column ── */
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ── Card ── */
+.member-card {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  background: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.member-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.14);
+}
+
+/* ── Image wrap — Gallery jaisa aspect ratio ── */
+.member-img-wrap {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1A4A2E, #2d7a4e);
+}
+
+.member-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.member-card:hover .member-img {
+  transform: scale(1.05);
+}
+
+/* ── Hover overlay — Gallery jaisa ── */
+.member-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.82));
+  padding: 28px 20px 16px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.member-card:hover .member-overlay {
+  transform: translateY(0);
+}
+
+.member-overlay .member-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.member-overlay .member-role {
+  font-size: 13px;
+  color: #FF6B00;
+  font-weight: 600;
+}
+
+/* ── Info neeche ── */
+.member-info {
+  padding: 16px 20px 20px;
+}
+
+.member-name-bottom {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1A4A2E;
+  margin-bottom: 6px;
+}
+
+.member-role-bottom {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #FF6B00;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: rgba(255,107,0,0.08);
+  border: 1px solid rgba(255,107,0,0.18);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.member-desc {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .members-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .members-grid {
+    grid-template-columns: 1fr;
+  }
+}

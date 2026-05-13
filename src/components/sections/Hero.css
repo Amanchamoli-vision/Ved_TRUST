@@ -1,0 +1,549 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Literata:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Tiro+Devanagari+Sanskrit&display=swap');
+
+/* ══════════════════════════════════════════
+   TOKENS
+══════════════════════════════════════════ */
+:root {
+  --ink:       #f7f5ff;
+  --ink-mid:   #ede9fe;
+  --ink-soft:  #c4b5fd;
+  --cream:     #1e1b4b;
+  --gold:      #7c3aed;
+  --gold-lt:   #4f46e5;
+  --rule:      rgba(99,102,241,0.15);
+}
+
+/* ══════════════════════════════════════════
+   HERO ROOT
+══════════════════════════════════════════ */
+.hero {
+  font-family: 'Literata', Georgia, serif;
+  min-height: 100vh;
+  background-color: #f7f5ff;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Grain texture */
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse at 0% 0%, rgba(99,102,241,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse at 100% 100%, rgba(124,58,237,0.08) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ══════════════════════════════════════════
+   BODY — two-column
+══════════════════════════════════════════ */
+.hero-body {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 480px 1fr;
+  min-height: 0;
+}
+
+/* ══════════════════════════════════════════
+   LEFT COLUMN
+══════════════════════════════════════════ */
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  padding: 52px 44px 52px 64px;
+  border-right: 1px solid var(--rule);
+  gap: 0;
+}
+
+/* ══════════════════════════════════════════
+   TAGLINE BLOCK — replaces logo-row
+══════════════════════════════════════════ */
+.hero-tagline-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+/* The three-word row */
+.hero-tagline-words {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+/* Each word stack */
+.hero-tagline-word {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+}
+
+/* Devanagari word — solid color, no gradient (gradient breaks matra rendering) */
+.hero-tagline-deva {
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e1b4b;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+  -webkit-text-fill-color: #1e1b4b;
+  background: none;
+  position: relative;
+  animation: tagword-in 0.7s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+.hero-tagline-word:nth-child(1) .hero-tagline-deva { animation-delay: 0.05s; }
+.hero-tagline-word:nth-child(3) .hero-tagline-deva { animation-delay: 0.15s; }
+.hero-tagline-word:nth-child(5) .hero-tagline-deva { animation-delay: 0.25s; }
+
+@keyframes tagword-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Roman transliteration — small, muted, elegant */
+.hero-tagline-roman {
+  font-family: 'Literata', serif;
+  font-size: 9.5px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(79,70,229,0.55);
+  line-height: 1;
+}
+
+/* Separator dot */
+.hero-tagline-dot {
+  font-size: 8px;
+  color: #a855f7;
+  opacity: 0.55;
+  flex-shrink: 0;
+  align-self: center;
+  margin-bottom: 12px; /* align with devanagari baseline */
+}
+
+/* Underline accent bar below the words */
+.hero-tagline-words::after {
+  content: '';
+  display: none; /* handled by bottom border on block */
+}
+
+.hero-tagline-block::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  margin-top: 14px;
+  background: linear-gradient(90deg,
+    rgba(79,70,229,0.0) 0%,
+    rgba(79,70,229,0.35) 20%,
+    rgba(124,58,237,0.45) 55%,
+    rgba(168,85,247,0.20) 85%,
+    rgba(168,85,247,0.0) 100%
+  );
+  border-radius: 2px;
+  animation: rule-in 1.1s ease both 0.3s;
+}
+
+@keyframes rule-in {
+  from { opacity: 0; transform: scaleX(0.3); transform-origin: left; }
+  to   { opacity: 1; transform: scaleX(1); transform-origin: left; }
+}
+
+/* Sub-line: full org name */
+.hero-tagline-sub {
+  font-family: 'Literata', serif;
+  font-size: 10.5px;
+  font-weight: 500;
+  color: rgba(30,27,75,0.50);
+  letter-spacing: 0.3px;
+  line-height: 1.5;
+  margin-top: 10px;
+  max-width: 280px;
+}
+
+/* ══════════════════════════════════════════
+   (legacy logo styles kept for safety)
+══════════════════════════════════════════ */
+.hero-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.hero-logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  border-radius: 10px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 12px rgba(79,70,229,0.25));
+}
+
+.hero-logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hero-org-name {
+  font-family: 'Literata', serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #1e1b4b;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+}
+
+/* Rule */
+.hero-rule {
+  width: 100%;
+  height: 1px;
+  background: var(--rule);
+  margin-bottom: 28px;
+}
+
+/* Eyebrow */
+.hero-eyebrow {
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* Pillars list */
+.hero-pillars {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.hero-pillar {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 12px;
+  border-bottom: 1px solid rgba(99,102,241,0.12);
+  border-left: 3px solid transparent;
+  background: rgba(255,255,255,0.50);
+  border-radius: 0 8px 8px 0;
+  transition: all 0.25s ease;
+  cursor: default;
+  margin-bottom: 4px;
+}
+
+.hero-pillar:first-child {
+  border-top: none;
+}
+
+.hero-pillar:hover {
+  background: rgba(255,255,255,0.90);
+  border-left-color: #7c3aed;
+  box-shadow: 0 2px 16px rgba(99,102,241,0.10);
+  transform: translateX(4px);
+}
+
+.hero-pillar-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #1e1b4b;
+  opacity: 1;
+  letter-spacing: 0.5px;
+}
+
+.hero-pillar-en {
+  font-family: 'Literata', serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1e1b4b;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+.hero-pillar-hi {
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #1e1b4b;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+/* Buttons */
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 28px;
+}
+
+.btn-primary {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #fff;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  padding: 14px 24px;
+  border-radius: 4px;
+  font-weight: 400;
+  transition: filter 0.25s, transform 0.25s;
+  box-shadow: 0 4px 24px rgba(79,70,229,0.25);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: var(--gold-lt);
+  background: transparent;
+  padding: 13px 24px;
+  border-radius: 4px;
+  border: 1px solid rgba(79,70,229,0.25);
+  transition: border-color 0.25s, background 0.25s, transform 0.25s;
+}
+
+.btn-ghost:hover {
+  border-color: var(--gold);
+  background: rgba(99,102,241,0.06);
+  transform: translateY(-2px);
+}
+
+/* ══════════════════════════════════════════
+   RIGHT COLUMN — Manifesto
+══════════════════════════════════════════ */
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 64px 80px 64px 72px;
+  gap: 0;
+}
+
+/* Shloka */
+.hero-shloka {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 44px;
+  padding-bottom: 44px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.hero-shloka-om {
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-size: 38px;
+  color: #7c3aed;
+  line-height: 1;
+  flex-shrink: 0;
+  opacity: 0.75;
+  margin-top: -4px;
+}
+
+.hero-shloka-verse {
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-size: 18px;
+  color: #1e1b4b;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+  margin: 0 0 6px;
+}
+
+.hero-shloka-trans {
+  font-family: 'Literata', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: rgba(30,27,75,0.40);
+  margin: 0;
+  letter-spacing: 0.2px;
+}
+
+/* Headline */
+.hero-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 1.0;
+  color: var(--cream);
+  letter-spacing: -1.5px;
+  margin: 0 0 36px;
+}
+
+.hero-headline em {
+  font-style: italic;
+  background: linear-gradient(130deg, #4f46e5, #7c3aed, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Manifesto paragraphs */
+.hero-manifesto {
+  font-size: 16px;
+  font-weight: 300;
+  color: #4b5563;
+  line-height: 1.85;
+  max-width: 540px;
+  margin: 0 0 18px;
+}
+
+.hero-manifesto--hi {
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-size: 15px;
+  color: #6b7280;
+  border-left: 2px solid var(--gold);
+  padding-left: 18px;
+  margin-bottom: 44px;
+}
+
+/* Promise row */
+.hero-promise-row {
+  display: flex;
+  gap: 0;
+}
+
+.hero-promise {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 24px;
+  border-left: 1px solid var(--rule);
+  font-size: 13px;
+  font-weight: 300;
+  color: #4b5563;
+  line-height: 1.6;
+  transition: background 0.25s;
+}
+
+.hero-promise:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+.hero-promise:hover {
+  background: rgba(99,102,241,0.04);
+}
+
+.hero-promise-icon {
+  font-size: 16px;
+  color: var(--gold);
+  opacity: 0.7;
+}
+
+/* ══════════════════════════════════════════
+   TICKER
+══════════════════════════════════════════ */
+.hero-ticker {
+  position: relative;
+  z-index: 2;
+  border-top: 2px solid rgba(99,102,241,0.20) !important;
+  border-bottom: 2px solid rgba(99,102,241,0.20) !important;
+  background: #f7f5ff !important;
+  overflow: hidden;
+  padding: 13px 0;
+}
+
+.hero-ticker-track {
+  display: flex;
+  gap: 0;
+  white-space: nowrap;
+  animation: ticker 28s linear infinite;
+  width: max-content;
+}
+
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.hero-ticker-item {
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-size: 11.5px;
+  color: #4f46e5 !important;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 0 28px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #4f46e5, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-ticker-sep {
+  color: #a855f7;
+  -webkit-text-fill-color: #a855f7;
+  font-size: 9px;
+  vertical-align: middle;
+  margin-left: 28px;
+  opacity: 0.6;
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media (max-width: 1100px) {
+  .hero-body {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-left {
+    padding: 40px 40px 36px;
+    border-right: none;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .hero-right {
+    padding: 48px 40px 52px;
+  }
+
+  .hero-headline { font-size: 52px; }
+  .hero-actions { flex-direction: row; }
+  .btn-primary, .btn-ghost { flex: 1; }
+}
+
+@media (max-width: 640px) {
+  .hero-topbar { padding: 10px 20px; gap: 10px; }
+  .hero-topbar-text { font-size: 9px; }
+  .hero-left { padding: 32px 24px; }
+  .hero-right { padding: 36px 24px 44px; }
+  .hero-headline { font-size: 38px; letter-spacing: -1px; }
+  .hero-promise-row { flex-direction: column; }
+  .hero-promise { border-left: none; border-top: 1px solid var(--rule); padding: 16px 0; }
+  .hero-promise:first-child { border-top: none; }
+  .hero-actions { flex-direction: column; }
+  .hero-tagline-deva { font-size: 17px; }
+  .hero-tagline-dot { font-size: 7px; }
+}

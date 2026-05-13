@@ -1,0 +1,477 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&family=Tiro+Devanagari+Sanskrit&display=swap');
+
+/* ══════════════════════════════════════════
+   TOKENS
+══════════════════════════════════════════ */
+.ab-page {
+  --ink:        #1e1b4b;
+  --ink-soft:   #4c4580;
+  --sand:       #f7f5ff;
+  --sand-dark:  #ede9fe;
+  --saffron:    #c45c0a;
+  --saffron-lt: #f0a060;
+  --navy:       #1e1b4b;
+  --navy-lt:    #2e1065;
+  --blue-mid:   #7c3aed;
+  --blue-glow:  rgba(124,58,237,0.12);
+
+  font-family: 'Outfit', sans-serif;
+  background: var(--sand);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ══════════════════════════════════════════
+   IDENTITY BLOCK
+══════════════════════════════════════════ */
+.ab-identity {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  min-height: 420px;
+  background: linear-gradient(135deg, #1e1b4b 0%, #2e1065 40%, #1e1b4b 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.ab-identity::before {
+  content: 'ॐ';
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 400px;
+  color: rgba(255,255,255,0.03);
+  line-height: 1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ab-id-left {
+  position: relative;
+  z-index: 1;
+  padding: 72px 64px 72px 80px;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+.ab-eyebrow {
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-size: 12px;
+  color: var(--saffron-lt);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.ab-name {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.ab-name-sanskrit {
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-size: 52px;
+  color: rgba(255,255,255,0.18);
+  line-height: 1;
+  letter-spacing: 2px;
+}
+
+.ab-name-eng {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 88px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 0.9;
+  letter-spacing: -3px;
+}
+
+.ab-fullform {
+  font-size: 13px;
+  color: rgba(255,255,255,0.40);
+  line-height: 1.6;
+  max-width: 340px;
+  margin-bottom: 28px;
+  font-weight: 300;
+}
+
+.ab-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: rgba(255,255,255,0.60);
+  line-height: 1.6;
+  border-left: 2px solid var(--saffron);
+  padding-left: 16px;
+}
+
+.ab-tagline em {
+  font-style: italic;
+  color: rgba(255,255,255,0.40);
+}
+
+/* ── Meta right ── */
+.ab-id-right {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  padding: 64px 72px 64px 56px;
+}
+
+.ab-id-meta { width: 100%; }
+
+.ab-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.ab-meta-item:last-child { border-bottom: none; }
+
+.ab-meta-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--saffron-lt);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.ab-meta-val {
+  font-size: 15px;
+  color: rgba(255,255,255,0.78);
+  font-weight: 400;
+}
+
+/* ══════════════════════════════════════════
+   STORY BLOCK
+══════════════════════════════════════════ */
+.ab-story {
+  background: var(--sand);
+  padding: 96px 80px;
+}
+
+.ab-story-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.ab-section-label {
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-size: 11px;
+  color: var(--saffron);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.ab-label--light { color: var(--saffron-lt); }
+
+.ab-section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  margin-bottom: 36px;
+}
+
+.ab-title--light { color: #fff; }
+
+.ab-para {
+  font-size: 15.5px;
+  color: var(--ink-soft);
+  line-height: 1.9;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.ab-para em { font-style: italic; color: #1e1b4b; font-weight: 500; }
+
+.ab-para--quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e1b4b;
+  border-left: 3px solid var(--saffron);
+  padding: 12px 20px;
+  background: var(--blue-glow);
+  border-radius: 0 8px 8px 0;
+  line-height: 1.7;
+}
+
+.ab-para--quote em {
+  display: block;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--ink-soft);
+  margin-top: 6px;
+  font-style: italic;
+}
+
+/* ── Aside ── */
+.ab-story-aside {
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.ab-vision-card {
+  background: linear-gradient(135deg, #1e1b4b 0%, #2e1065 40%, #1e1b4b 100%);
+  border-radius: 16px;
+  padding: 36px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ab-vision-card::after {
+  content: 'ज्ञान';
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  position: absolute;
+  right: -10px;
+  bottom: -20px;
+  font-size: 120px;
+  color: rgba(255,255,255,0.04);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.ab-vision-shloka {
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-size: 24px;
+  color: rgba(255,255,255,0.90);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.ab-vision-trans {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  font-style: italic;
+  color: var(--saffron-lt);
+  margin-bottom: 20px;
+}
+
+.ab-vision-body {
+  font-size: 14px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.85;
+  font-weight: 300;
+}
+
+/* Registered badge */
+.ab-registered-badge {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--sand-dark);
+  border: 1px solid rgba(124,58,237,0.12);
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+
+.ab-badge-icon {
+  font-size: 24px;
+  color: #7c3aed;
+  flex-shrink: 0;
+}
+
+.ab-badge-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1e1b4b;
+  margin-bottom: 3px;
+}
+
+.ab-badge-sub {
+  font-size: 12px;
+  color: var(--ink-soft);
+  font-weight: 400;
+}
+
+/* ══════════════════════════════════════════
+   VALUES BLOCK
+══════════════════════════════════════════ */
+.ab-values {
+  background: linear-gradient(135deg, #1e1b4b 0%, #2e1065 40%, #1e1b4b 100%);
+  padding: 96px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ab-values::after {
+  content: 'धर्म';
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  position: absolute;
+  right: -20px;
+  bottom: -60px;
+  font-size: 320px;
+  color: rgba(255,255,255,0.025);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.ab-values-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ab-pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-top: 56px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.ab-pillar {
+  padding: 40px 32px;
+  background: rgba(255,255,255,0.03);
+  border-right: 1px solid rgba(255,255,255,0.06);
+  transition: background 0.3s ease;
+}
+
+.ab-pillar:last-child { border-right: none; }
+.ab-pillar:hover { background: rgba(255,255,255,0.07); }
+
+.ab-pillar-num {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.05);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.ab-pillar-sanskrit {
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-size: 32px;
+  color: rgba(255,255,255,0.90);
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.ab-pillar-roman {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  font-style: italic;
+  color: var(--saffron-lt);
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.ab-pillar-meaning {
+  font-size: 13px;
+  color: rgba(255,255,255,0.48);
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* ══════════════════════════════════════════
+   CTA STRIP
+══════════════════════════════════════════ */
+.ab-cta {
+  background: var(--sand-dark);
+  padding: 80px;
+  text-align: center;
+  border-top: 1px solid rgba(124,58,237,0.10);
+}
+
+.ab-cta-shloka {
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-size: 36px;
+  color: #1e1b4b;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.ab-cta-trans {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin-bottom: 40px;
+}
+
+.ab-cta-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.ab-btn {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 14px 36px;
+  border-radius: 6px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.ab-btn--primary {
+  background: linear-gradient(135deg, #1e1b4b 0%, #2e1065 40%, #1e1b4b 100%);
+  color: #fff;
+  box-shadow: 0 6px 24px rgba(79,46,229,0.30);
+}
+
+.ab-btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(79,46,229,0.40);
+}
+
+.ab-btn--ghost {
+  color: #1e1b4b;
+  border: 1.5px solid #1e1b4b;
+}
+
+.ab-btn--ghost:hover {
+  background: linear-gradient(135deg, #1e1b4b 0%, #2e1065 40%, #1e1b4b 100%);
+  color: #fff;
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .ab-identity       { grid-template-columns: 1fr; }
+  .ab-id-left        { padding: 56px 40px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .ab-id-right       { padding: 40px 40px 56px; }
+  .ab-story          { padding: 64px 40px; }
+  .ab-story-inner    { grid-template-columns: 1fr; gap: 48px; }
+  .ab-values         { padding: 64px 40px; }
+  .ab-pillars        { grid-template-columns: 1fr 1fr; }
+  .ab-pillar         { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .ab-pillar:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.06); }
+  .ab-cta            { padding: 64px 40px; }
+  .ab-name-eng       { font-size: 64px; }
+  .ab-section-title  { font-size: 40px; }
+}
+
+@media (max-width: 600px) {
+  .ab-id-left        { padding: 48px 24px; }
+  .ab-id-right       { padding: 32px 24px 48px; }
+  .ab-name-eng       { font-size: 52px; }
+  .ab-name-sanskrit  { font-size: 36px; }
+  .ab-story          { padding: 56px 24px; }
+  .ab-values         { padding: 56px 24px; }
+  .ab-pillars        { grid-template-columns: 1fr; }
+  .ab-pillar         { border-right: none !important; }
+  .ab-cta            { padding: 56px 24px; }
+  .ab-cta-shloka     { font-size: 26px; }
+  .ab-cta-btns       { flex-direction: column; }
+  .ab-section-title  { font-size: 34px; }
+}
