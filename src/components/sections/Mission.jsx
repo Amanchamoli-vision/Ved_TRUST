@@ -1,6 +1,6 @@
 import './Mission.css'
 import gaushalaImg from '../../assets/gausala.png'
-import computerImg from '../../assets/computer.png'
+import computerImg from '../../assets/computer1.png'
 import womenImg    from '../../assets/women.png'
 import medicalImg  from '../../assets/medical.png'
 import riverImg    from '../../assets/river22.png'
@@ -15,7 +15,6 @@ const programs = [
     title: 'Gausala',
     subtitle: 'A Sanctuary We Are Building',
     img: gaushalaImg,
-    imgPos: 'center 40%',
     body: `We are working to establish a Gausala in Uttarakhand that will shelter abandoned and injured cows, providing them lifelong care, nutritious fodder, and regular veterinary attention. Rooted in the Vedic principle of Ahimsa, we see the cow not merely as an animal but as a living symbol of compassion and sustenance.`,
     body2: `Our vision goes beyond shelter — the Gausala will generate organic compost and cow-based products to support local farmers and create dignified livelihoods. गौ सेवा ही ईश्वर सेवा है — this mission is both our faith and our future.`,
     stat: 'Coming',
@@ -31,7 +30,6 @@ const programs = [
     title: 'Free Education',
     subtitle: 'Knowledge for Every Child',
     img: computerImg,
-    imgPos: 'center 30%',
     body: `We plan to open free education centres in rural villages of Uttarakhand where children will learn computer skills, spoken English, mathematics, and critical thinking — equipping the next generation not just for exams, but for life. No child should be left behind because of geography or poverty.`,
     body2: `Each centre will be run by trained local youth, creating a cycle where today's students become tomorrow's teachers. शिक्षा केवल किताबों तक सीमित नहीं — यह आत्मविश्वास और स्वावलम्बन की नींव है।`,
     stat: 'Free',
@@ -47,7 +45,6 @@ const programs = [
     title: 'Women Empowerment',
     subtitle: 'Building Self-Reliant Women',
     img: womenImg,
-    imgPos: 'center 20%',
     body: `We aim to launch skill-development programs for women across rural Uttarakhand — covering tailoring, handicraft, organic farming, and micro-entrepreneurship. By partnering with government schemes and NGO networks, we will ensure every woman has access to training, tools, and markets.`,
     body2: `जब एक स्त्री आत्मनिर्भर होती है, तो पूरा परिवार सशक्त होता है। We will form women-led self-help groups that independently manage savings, take collective decisions, and grow together.`,
     stat: 'Our',
@@ -63,7 +60,6 @@ const programs = [
     title: 'Medical Aid',
     subtitle: 'Healthcare as a Right, Not a Privilege',
     img: medicalImg,
-    imgPos: 'center center',
     body: `Remote villages in Uttarakhand often have no access to even basic medical care. We intend to establish mobile medical camps and fixed health centres offering free consultations, medicines, and diagnostic support — with a special focus on maternal health, childhood nutrition, and chronic illness.`,
     body2: `निरोगी काया, निर्मल मन। Every person, regardless of income or geography, deserves dignified care. This is not charity — it is our responsibility as human beings.`,
     stat: 'Free',
@@ -79,7 +75,6 @@ const programs = [
     title: 'Ganga–Yamuna Conservation',
     subtitle: 'Protecting What We Hold Sacred',
     img: riverImg,
-    imgPos: 'right 60%',   // ← changed: left side (text area) ab crop nahi hoga
     body: `The Ganga and Yamuna are not merely rivers — they are the lifeblood of civilisation, woven into our prayers, our identity, and our history. Yet today, pollution and neglect threaten their very existence. We will organise community clean-up drives, awareness campaigns, and large-scale riparian plantation along their banks.`,
     body2: `गंगा हमारी माँ है — उसकी रक्षा हमारा धर्म है। We plan to train village-level "river guardians" who will monitor pollution and keep their stretch of the river clean, every single day.`,
     stat: 'Our',
@@ -95,7 +90,6 @@ const programs = [
     title: 'Vriksharopan',
     subtitle: 'One Tree, One Promise',
     img: plantImg,
-    imgPos: 'center 30%',
     body: `Forests are the lungs of the earth. We will engage schools, panchayats, and youth groups every monsoon season to restore green cover across degraded land in Uttarakhand. Every sapling planted will be tracked, tended, and celebrated as an act of devotion to future generations.`,
     body2: `वृक्षो रक्षति रक्षितः — the tree that is protected, protects in return. Through this ancient truth, we will build an unbroken bond between humanity and nature — one root at a time.`,
     stat: 'Our',
@@ -144,7 +138,8 @@ function Mission() {
           {/* Image column */}
           <div className="mp-img-col">
             <div className="mp-img-frame">
-              <img src={p.img} alt={p.title} style={{ objectPosition: p.imgPos }} />
+              {/* ↓ imgPos / style prop HATA diya — contain ke saath zarurat nahi */}
+              <img src={p.img} alt={p.title} />
               <div className="mp-img-overlay" />
               <div className="mp-img-stat">
                 <span className="mp-stat-num">{p.stat}</span>
