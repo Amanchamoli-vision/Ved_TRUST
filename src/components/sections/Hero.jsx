@@ -1,30 +1,25 @@
 import { Link } from 'react-router-dom'
-import vedLogo from '../../assets/v-trust.png'
 import './Hero.css'
 
 const pillars = [
-  { num: '01', en: 'Gausala',            hi: 'गौशाला' },
-  { num: '02', en: 'Free Education',     hi: 'निःशुल्क शिक्षा' },
-  { num: '03', en: 'Women Empowerment',  hi: 'महिला सशक्तिकरण' },
-  { num: '04', en: 'Rural Healthcare',   hi: 'ग्रामीण स्वास्थ्य' },
-  { num: '05', en: 'River Conservation', hi: 'नदी संरक्षण' },
-  { num: '06', en: 'Vriksharopan',       hi: 'वृक्षारोपण' },
+  { num: '01', en: 'Gausala',            hi: 'गौशाला',           tag: 'Animal Welfare' },
+  { num: '02', en: 'Free Education',     hi: 'निःशुल्क शिक्षा',  tag: 'Digital Literacy' },
+  { num: '03', en: 'Women Empowerment',  hi: 'महिला सशक्तिकरण', tag: 'Empowerment' },
+  { num: '04', en: 'Rural Healthcare',   hi: 'ग्रामीण स्वास्थ्य', tag: 'Medical Aid' },
+  { num: '05', en: 'River Conservation', hi: 'नदी संरक्षण',       tag: 'Environment' },
+  { num: '06', en: 'Vriksharopan',       hi: 'वृक्षारोपण',        tag: 'Reforestation' },
 ]
 
 function Hero() {
   return (
     <section className="hero">
-
-      {/* Grain overlay */}
       <div className="hero-grain" />
 
-      {/* Main layout */}
       <div className="hero-body">
 
-        {/* LEFT — Identity + Pillars */}
+        {/* ── LEFT ── */}
         <div className="hero-left">
 
-          {/* ── Stunning Tagline Block (replaces logo row) ── */}
           <div className="hero-tagline-block">
             <div className="hero-tagline-words">
               <span className="hero-tagline-word">
@@ -42,14 +37,9 @@ function Hero() {
                 <span className="hero-tagline-roman">Swasthya</span>
               </span>
             </div>
-            {/* <p className="hero-tagline-sub">
-              Ved Transformative Research &amp; Universal Science Technology Foundation
-            </p> */}
           </div>
-          {/* ─────────────────────────────────────────── */}
 
           <div className="hero-rule" />
-
           <p className="hero-eyebrow">हमारे छः स्तम्भ · Six Pillars of Seva</p>
 
           <ul className="hero-pillars">
@@ -71,9 +61,10 @@ function Hero() {
 
         </div>
 
-        {/* RIGHT — Manifesto */}
+        {/* ── RIGHT ── */}
         <div className="hero-right">
 
+          {/* Shloka bar */}
           <div className="hero-shloka">
             <span className="hero-shloka-om">ॐ</span>
             <blockquote>
@@ -82,13 +73,12 @@ function Hero() {
             </blockquote>
           </div>
 
+          {/* 2-line headline */}
           <h1 className="hero-headline">
-            A new chapter<br />
-            for rural<br />
-            <em>Uttarakhand</em><br />
-            begins here.
+            A new chapter for rural <em>Uttarakhand</em> begins here.
           </h1>
 
+          {/* Manifesto */}
           <p className="hero-manifesto">
             We are a newly registered trust — not with years of work behind us,
             but with a clear vision ahead. Six programs. Six promises.
@@ -101,6 +91,23 @@ function Hero() {
             जो सपना हमने देखा है, उसे हम मिलकर साकार करेंगे।
           </p>
 
+          {/* Stats grid — fills empty space */}
+          <div className="hero-stats">
+            <div className="hero-stat">
+              <span className="hero-stat-num">6</span>
+              <span className="hero-stat-lbl">Core Programs</span>
+            </div>
+            <div className="hero-stat">
+              <span className="hero-stat-num">100%</span>
+              <span className="hero-stat-lbl">Community Funded</span>
+            </div>
+            <div className="hero-stat">
+              <span className="hero-stat-num">∞</span>
+              <span className="hero-stat-lbl">Seva, No Limit</span>
+            </div>
+          </div>
+
+          {/* Promise row */}
           <div className="hero-promise-row">
             <div className="hero-promise">
               <span className="hero-promise-icon">◈</span>
@@ -119,7 +126,7 @@ function Hero() {
         </div>
       </div>
 
-      {/* Bottom ticker */}
+      {/* Ticker */}
       <div className="hero-ticker">
         <div className="hero-ticker-track">
           {['गौ सेवा', 'Free Education', 'नदी संरक्षण', 'Women Empowerment',

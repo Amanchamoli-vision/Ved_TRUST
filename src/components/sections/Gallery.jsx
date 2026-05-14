@@ -2,17 +2,18 @@ import './Gallery.css'
 
 // ✅ Sahi path — 2 folders upar jaao
 import tree from '../../assets/tree.jpeg'
-import aman from '../../assets/aman.jpeg'
-import kashish from '../../assets/kashish.jpeg'
+import cow from '../../assets/cow.jpeg'
+import tree2 from '../../assets/tree2.jpeg'
 import kashish1 from '../../assets/kashish1.jpeg'
 import tushar from '../../assets/tushar.jpeg'
 import hero from '../../assets/hero.png'
 
 function Gallery() {
   const images = [
-    { id: 1, title: 'Tree Plantation', category: 'Environment', src: tree },
-    // { id: 2, title: 'Computer Classes', category: 'Education', src: aman },
-    // { id: 3, title: 'Women Workshop', category: 'Empowerment', src: kashish },
+    { id: 1, title: 'Environment', category: 'Plantation', src: tree },
+    //{ id: 2, title: 'Women Workshop', category: 'Empowerment', src: tree2 },
+    //{ id: 3, title: 'Computer Classes', category: 'Education', src: cow },
+    
     // { id: 4, title: 'Medical Camp', category: 'Healthcare', src: kashish1 },
     // { id: 5, title: 'River Cleaning', category: 'Environment', src: tushar },
     // { id: 6, title: 'Community Event', category: 'Community', src: hero },

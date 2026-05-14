@@ -58,7 +58,7 @@ const navLinks = [
   { to: '/about', icon: 'ti-info-circle', label: 'About Us' },
   //{ to: '/services', icon: 'ti-settings', label: 'Services' },
   { to: '/gallery', icon: 'ti-photo', label: 'Gallery' },
-  { to: '/members', icon: 'ti-users', label: 'Members' },
+  // { to: '/members', icon: 'ti-users', label: 'Members' },
   { to: '/contact', icon: 'ti-mail', label: 'Contact' },
 ]
 
@@ -67,7 +67,7 @@ const programs = [
   { icon: 'ti-device-laptop', label: 'Free Computer Classes' },
   { icon: 'ti-heart-handshake', label: 'Women Empowerment' },
   { icon: 'ti-stethoscope', label: 'Medical Facility' },
-  { icon: 'ti-droplet', label: 'Ganga-Yamuna Safai' },
+  { icon: 'ti-droplet', label: 'Ganga Safai' },
   { icon: 'ti-school', label: 'Rural Education' },
 ]
 
