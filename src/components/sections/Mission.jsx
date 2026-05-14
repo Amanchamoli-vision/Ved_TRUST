@@ -1,5 +1,5 @@
 import './Mission.css'
-import gaushalaImg from '../../assets/gaushala.png'
+import gaushalaImg from '../../assets/gausala.png'
 import computerImg from '../../assets/computer.png'
 import womenImg    from '../../assets/women.png'
 import medicalImg  from '../../assets/medical.png'
